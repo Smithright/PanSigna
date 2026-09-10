@@ -7,7 +7,7 @@ name = "pansigna-research"
 version = "0.1.0"
 description = "Controlled experiments in semantic canonicalization and causal legibility"
 requires-python = ">=3.12"
-dependencies = ["torch>=2.5,<3"]
+dependencies = ["torch>=2.5,<3", "numpy>=2,<3"]
 
 [project.optional-dependencies]
 test = ["pytest>=8,<10"]
