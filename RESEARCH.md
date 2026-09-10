@@ -51,6 +51,13 @@ training. See [its results](docs/full-chain-results.md) and the repository `skil
 directory for eight stage-specific agent contracts. The initial draft manuscript
 is under `paper/`; it is not an arXiv submission or a confirmed hypothesis.
 
+The next rung implements [frozen causal alignment and fresh graph calibration](docs/next-experiment-v03.md).
+The [graph calibration protocol](docs/v03B-calibration-protocol.md) fixes a competence
+gate before interpreting internal graph interventions. Its implementation is
+`pansigna.graphs`; frozen v0.2 intervention fitting is `pansigna.alignment`.
+The [v0.3 results](docs/results-v03/report.md) preserve positive findings, failed
+competence gates, controls and the limits of the comparison.
+
 ## Ownership and scope
 
 Ryan Smith's PanSigna conception motivates the hypothesis. The synthetic vocabulary,
