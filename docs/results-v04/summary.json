@@ -1,0 +1,2386 @@
+{
+  "results": {
+    "text": {
+      "summary": {
+        "config": {
+          "version": "v0.4-onehop-objective-control",
+          "arm": "text",
+          "seed": 43,
+          "data_seed": 1041,
+          "sizes": {
+            "train": 800,
+            "dev": 160,
+            "test": 160
+          },
+          "batch": 64,
+          "lr": 0.003,
+          "initial_steps": 2000,
+          "max_steps": 6000,
+          "gate": 0.95,
+          "architecture": {
+            "width": 48,
+            "layers": 3,
+            "heads": 4,
+            "max_length": 256
+          },
+          "vocabulary": {
+            "<pad>": 0,
+            ".": 1,
+            "<answer>": 2,
+            "<bos>": 3,
+            "<eos>": 4,
+            "a": 5,
+            "alice": 6,
+            "at": 7,
+            "bob": 8,
+            "carol": 9,
+            "dana": 10,
+            "erin": 11,
+            "frank": 12,
+            "from": 13,
+            "gesture": 14,
+            "grace": 15,
+            "hana": 16,
+            "indicates": 17,
+            "link": 18,
+            "next": 19,
+            "points": 20,
+            "query": 21,
+            "reaches": 22,
+            "to": 23
+          },
+          "parameters": 71592,
+          "initial_state_sha256": "b98991c92ca8f0022695765e88afef2558a59b79d7c5db74782bfd43887e80b6",
+          "schedule_sha256": "bf29ccc2ac6366857d3be889f329ae9e865f1f2b7898220722efc51d8cae0325",
+          "schedule_seed": 143,
+          "rows_sha256": "c27a3f1def83ea60c4e411a52ecba180476e89e8b20241e3cbfc9c1e70521215",
+          "worlds_sha256": "6af16a60242f2dbb63c0a3a304598ebb1683b8ebb17bb0bd3c0a62c6cfaa46db",
+          "catalog_sha256": "5b965a78ed58f062eb7bf8b6c7cbfd97c1e325fb6cab2c9c111501a3d180cdc3",
+          "torch_version": "2.14.0",
+          "source_sha256": {
+            "graphs.py": "d0557bfcc325b0bdd2a3566c30d10d0228fab9de665b0a2503918e70bea222ee",
+            "model.py": "917eddf76f5969f44acf6d09639a61133b34cb4c32e37d6e90d7d7a34dd56099",
+            "native.py": "bb0d278dd7b74a1429657c57a3e9fec16a40aefc7a5748144c229f8b11e0db72"
+          },
+          "control_source_sha256": "b831b9fc736b0d42eb856df6735030926eb771aff8db122d1ed0bb1355af17de",
+          "declared_design": true,
+          "scope": "Exploratory reused-world calibration. Within-arm paired objectives; no novelty claim."
+        },
+        "paired_checkpoint_steps": [
+          2000,
+          6000
+        ],
+        "stopped_steps": {
+          "full": 6000,
+          "answer_only": 6000
+        },
+        "gate_pass": {
+          "full": false,
+          "answer_only": false
+        },
+        "comparison": "Use common checkpoint steps only for paired exposure comparisons; unequal stopped endpoints are not compute matched."
+      },
+      "metrics": {
+        "full": {
+          "objective": "full",
+          "stopped_step": 6000,
+          "competence_gate_pass": false,
+          "checkpoints": [
+            {
+              "step": 2000,
+              "development": {
+                "exact": {
+                  "n": 320,
+                  "correct": 35
+                },
+                "legible": 320,
+                "terminated": 320,
+                "full_loss": 0.7344629287719726,
+                "answer_loss": 1.4615609169006347,
+                "full_targets": 21120,
+                "answer_targets": 640
+              },
+              "gate_pass": false,
+              "exposures": {
+                "records": 128000,
+                "input_tokens": 8443760,
+                "full_targets": 8443760,
+                "answer_targets": 256000,
+                "supervised_targets": 8443760
+              },
+              "elapsed_seconds": 72.81237216701265,
+              "checkpoint_sha256": "d2a766df20751a24dde533496eaa36261326b74b8986d2e8cb4beb51544433fe",
+              "state_sha256": "c956ec7e1792cfac92606030db5698dea00ac27feb756b485c9d707cc8ece6a3",
+              "schedule_prefix_sha256": "3b9acea88070f87ed4631f4bba8893043a19dd94d25f2f0bb15639ef9d8fbb76",
+              "evaluation": {
+                "train": {
+                  "exact": {
+                    "n": 1600,
+                    "correct": 671
+                  },
+                  "legible": 1599,
+                  "terminated": 1599,
+                  "full_loss": 0.395097416639328,
+                  "answer_loss": 0.7685913228988648,
+                  "full_targets": 105600,
+                  "answer_targets": 3200
+                },
+                "dev": {
+                  "exact": {
+                    "n": 320,
+                    "correct": 35
+                  },
+                  "legible": 320,
+                  "terminated": 320,
+                  "full_loss": 0.7344629287719726,
+                  "answer_loss": 1.4615609169006347,
+                  "full_targets": 21120,
+                  "answer_targets": 640
+                },
+                "test": {
+                  "exact": {
+                    "n": 320,
+                    "correct": 43
+                  },
+                  "legible": 320,
+                  "terminated": 320,
+                  "full_loss": 0.720334780216217,
+                  "answer_loss": 1.3274874448776246,
+                  "full_targets": 21120,
+                  "answer_targets": 640
+                }
+              }
+            },
+            {
+              "step": 6000,
+              "development": {
+                "exact": {
+                  "n": 320,
+                  "correct": 40
+                },
+                "legible": 320,
+                "terminated": 320,
+                "full_loss": 1.5332781553268433,
+                "answer_loss": 4.00013313293457,
+                "full_targets": 21120,
+                "answer_targets": 640
+              },
+              "gate_pass": false,
+              "exposures": {
+                "records": 384000,
+                "input_tokens": 25338400,
+                "full_targets": 25338400,
+                "answer_targets": 768000,
+                "supervised_targets": 25338400
+              },
+              "elapsed_seconds": 217.695920667029,
+              "checkpoint_sha256": "f3b4c300829bb95aac5194c56189532cd3b47ff4b3872ac54ac3b0c460da252c",
+              "state_sha256": "1e418c0b628b3e835b3c92638670c4db696c9c2bece6e6857424208d36decc31",
+              "schedule_prefix_sha256": "bf29ccc2ac6366857d3be889f329ae9e865f1f2b7898220722efc51d8cae0325",
+              "evaluation": {
+                "train": {
+                  "exact": {
+                    "n": 1600,
+                    "correct": 1433
+                  },
+                  "legible": 1599,
+                  "terminated": 1599,
+                  "full_loss": 0.22269524574279786,
+                  "answer_loss": 0.1593173485994339,
+                  "full_targets": 105600,
+                  "answer_targets": 3200
+                },
+                "dev": {
+                  "exact": {
+                    "n": 320,
+                    "correct": 40
+                  },
+                  "legible": 320,
+                  "terminated": 320,
+                  "full_loss": 1.5332781553268433,
+                  "answer_loss": 4.00013313293457,
+                  "full_targets": 21120,
+                  "answer_targets": 640
+                },
+                "test": {
+                  "exact": {
+                    "n": 320,
+                    "correct": 47
+                  },
+                  "legible": 319,
+                  "terminated": 319,
+                  "full_loss": 1.4840852260589599,
+                  "answer_loss": 3.6916907787323,
+                  "full_targets": 21120,
+                  "answer_targets": 640
+                }
+              }
+            }
+          ],
+          "logs": [
+            {
+              "step": 1,
+              "full_loss": 3.318788528442383,
+              "answer_loss": 3.3331222534179688,
+              "elapsed_seconds": 0.04959487507585436,
+              "exposures": {
+                "records": 64,
+                "input_tokens": 4224,
+                "full_targets": 4224,
+                "answer_targets": 128,
+                "supervised_targets": 4224
+              }
+            },
+            {
+              "step": 200,
+              "full_loss": 0.7043676376342773,
+              "answer_loss": 1.0433759689331055,
+              "elapsed_seconds": 7.263074374990538,
+              "exposures": {
+                "records": 12800,
+                "input_tokens": 844840,
+                "full_targets": 844840,
+                "answer_targets": 25600,
+                "supervised_targets": 844840
+              }
+            },
+            {
+              "step": 400,
+              "full_loss": 0.5179900527000427,
+              "answer_loss": 1.0185558795928955,
+              "elapsed_seconds": 14.522796000004746,
+              "exposures": {
+                "records": 25600,
+                "input_tokens": 1689280,
+                "full_targets": 1689280,
+                "answer_targets": 51200,
+                "supervised_targets": 1689280
+              }
+            },
+            {
+              "step": 600,
+              "full_loss": 0.5186645984649658,
+              "answer_loss": 1.053900122642517,
+              "elapsed_seconds": 21.88222491706256,
+              "exposures": {
+                "records": 38400,
+                "input_tokens": 2532800,
+                "full_targets": 2532800,
+                "answer_targets": 76800,
+                "supervised_targets": 2532800
+              }
+            },
+            {
+              "step": 800,
+              "full_loss": 0.4983673095703125,
+              "answer_loss": 1.0104001760482788,
+              "elapsed_seconds": 29.189530750038102,
+              "exposures": {
+                "records": 51200,
+                "input_tokens": 3376900,
+                "full_targets": 3376900,
+                "answer_targets": 102400,
+                "supervised_targets": 3376900
+              }
+            },
+            {
+              "step": 1000,
+              "full_loss": 0.4908958673477173,
+              "answer_loss": 0.9706240892410278,
+              "elapsed_seconds": 36.46597350004595,
+              "exposures": {
+                "records": 64000,
+                "input_tokens": 4219220,
+                "full_targets": 4219220,
+                "answer_targets": 128000,
+                "supervised_targets": 4219220
+              }
+            },
+            {
+              "step": 1200,
+              "full_loss": 0.46176889538764954,
+              "answer_loss": 0.9438624978065491,
+              "elapsed_seconds": 43.58734320802614,
+              "exposures": {
+                "records": 76800,
+                "input_tokens": 5061760,
+                "full_targets": 5061760,
+                "answer_targets": 153600,
+                "supervised_targets": 5061760
+              }
+            },
+            {
+              "step": 1400,
+              "full_loss": 0.4490946829319,
+              "answer_loss": 0.9029470682144165,
+              "elapsed_seconds": 50.72479591704905,
+              "exposures": {
+                "records": 89600,
+                "input_tokens": 5905620,
+                "full_targets": 5905620,
+                "answer_targets": 179200,
+                "supervised_targets": 5905620
+              }
+            },
+            {
+              "step": 1600,
+              "full_loss": 0.44037145376205444,
+              "answer_loss": 0.8651582598686218,
+              "elapsed_seconds": 58.10838049999438,
+              "exposures": {
+                "records": 102400,
+                "input_tokens": 6751380,
+                "full_targets": 6751380,
+                "answer_targets": 204800,
+                "supervised_targets": 6751380
+              }
+            },
+            {
+              "step": 1800,
+              "full_loss": 0.42208027839660645,
+              "answer_loss": 0.8300454616546631,
+              "elapsed_seconds": 65.33846629201435,
+              "exposures": {
+                "records": 115200,
+                "input_tokens": 7597640,
+                "full_targets": 7597640,
+                "answer_targets": 230400,
+                "supervised_targets": 7597640
+              }
+            },
+            {
+              "step": 2000,
+              "full_loss": 0.37937116622924805,
+              "answer_loss": 0.8319776654243469,
+              "elapsed_seconds": 72.48719579202589,
+              "exposures": {
+                "records": 128000,
+                "input_tokens": 8443760,
+                "full_targets": 8443760,
+                "answer_targets": 256000,
+                "supervised_targets": 8443760
+              }
+            },
+            {
+              "step": 2200,
+              "full_loss": 0.3563780188560486,
+              "answer_loss": 0.662704348564148,
+              "elapsed_seconds": 80.10155008302536,
+              "exposures": {
+                "records": 140800,
+                "input_tokens": 9288200,
+                "full_targets": 9288200,
+                "answer_targets": 281600,
+                "supervised_targets": 9288200
+              }
+            },
+            {
+              "step": 2400,
+              "full_loss": 0.36447975039482117,
+              "answer_loss": 0.7278805375099182,
+              "elapsed_seconds": 87.2580161250662,
+              "exposures": {
+                "records": 153600,
+                "input_tokens": 10132780,
+                "full_targets": 10132780,
+                "answer_targets": 307200,
+                "supervised_targets": 10132780
+              }
+            },
+            {
+              "step": 2600,
+              "full_loss": 0.35834750533103943,
+              "answer_loss": 0.5967655181884766,
+              "elapsed_seconds": 94.46668258297723,
+              "exposures": {
+                "records": 166400,
+                "input_tokens": 10975600,
+                "full_targets": 10975600,
+                "answer_targets": 332800,
+                "supervised_targets": 10975600
+              }
+            },
+            {
+              "step": 2800,
+              "full_loss": 0.32504090666770935,
+              "answer_loss": 0.5689451098442078,
+              "elapsed_seconds": 101.97712516703177,
+              "exposures": {
+                "records": 179200,
+                "input_tokens": 11822660,
+                "full_targets": 11822660,
+                "answer_targets": 358400,
+                "supervised_targets": 11822660
+              }
+            },
+            {
+              "step": 3000,
+              "full_loss": 0.31501197814941406,
+              "answer_loss": 0.5284431576728821,
+              "elapsed_seconds": 109.27700120804366,
+              "exposures": {
+                "records": 192000,
+                "input_tokens": 12669840,
+                "full_targets": 12669840,
+                "answer_targets": 384000,
+                "supervised_targets": 12669840
+              }
+            },
+            {
+              "step": 3200,
+              "full_loss": 0.30727189779281616,
+              "answer_loss": 0.39817318320274353,
+              "elapsed_seconds": 116.59704424999654,
+              "exposures": {
+                "records": 204800,
+                "input_tokens": 13513160,
+                "full_targets": 13513160,
+                "answer_targets": 409600,
+                "supervised_targets": 13513160
+              }
+            },
+            {
+              "step": 3400,
+              "full_loss": 0.2977333962917328,
+              "answer_loss": 0.38908690214157104,
+              "elapsed_seconds": 123.75029520806856,
+              "exposures": {
+                "records": 217600,
+                "input_tokens": 14358020,
+                "full_targets": 14358020,
+                "answer_targets": 435200,
+                "supervised_targets": 14358020
+              }
+            },
+            {
+              "step": 3600,
+              "full_loss": 0.27904605865478516,
+              "answer_loss": 0.3336951434612274,
+              "elapsed_seconds": 130.88964633306023,
+              "exposures": {
+                "records": 230400,
+                "input_tokens": 15202220,
+                "full_targets": 15202220,
+                "answer_targets": 460800,
+                "supervised_targets": 15202220
+              }
+            },
+            {
+              "step": 3800,
+              "full_loss": 0.2868066728115082,
+              "answer_loss": 0.307785302400589,
+              "elapsed_seconds": 138.0151659999974,
+              "exposures": {
+                "records": 243200,
+                "input_tokens": 16046220,
+                "full_targets": 16046220,
+                "answer_targets": 486400,
+                "supervised_targets": 16046220
+              }
+            },
+            {
+              "step": 4000,
+              "full_loss": 0.29045963287353516,
+              "answer_loss": 0.3368419408798218,
+              "elapsed_seconds": 145.20383733301423,
+              "exposures": {
+                "records": 256000,
+                "input_tokens": 16892080,
+                "full_targets": 16892080,
+                "answer_targets": 512000,
+                "supervised_targets": 16892080
+              }
+            },
+            {
+              "step": 4200,
+              "full_loss": 0.26398125290870667,
+              "answer_loss": 0.25874975323677063,
+              "elapsed_seconds": 152.36234229197726,
+              "exposures": {
+                "records": 268800,
+                "input_tokens": 17739520,
+                "full_targets": 17739520,
+                "answer_targets": 537600,
+                "supervised_targets": 17739520
+              }
+            },
+            {
+              "step": 4400,
+              "full_loss": 0.2652449607849121,
+              "answer_loss": 0.2404816448688507,
+              "elapsed_seconds": 159.57121099997312,
+              "exposures": {
+                "records": 281600,
+                "input_tokens": 18583460,
+                "full_targets": 18583460,
+                "answer_targets": 563200,
+                "supervised_targets": 18583460
+              }
+            },
+            {
+              "step": 4600,
+              "full_loss": 0.2758169174194336,
+              "answer_loss": 0.2909170091152191,
+              "elapsed_seconds": 166.69411304197274,
+              "exposures": {
+                "records": 294400,
+                "input_tokens": 19428260,
+                "full_targets": 19428260,
+                "answer_targets": 588800,
+                "supervised_targets": 19428260
+              }
+            },
+            {
+              "step": 4800,
+              "full_loss": 0.24078062176704407,
+              "answer_loss": 0.2237168848514557,
+              "elapsed_seconds": 173.86145062500145,
+              "exposures": {
+                "records": 307200,
+                "input_tokens": 20272500,
+                "full_targets": 20272500,
+                "answer_targets": 614400,
+                "supervised_targets": 20272500
+              }
+            },
+            {
+              "step": 5000,
+              "full_loss": 0.23361757397651672,
+              "answer_loss": 0.24929919838905334,
+              "elapsed_seconds": 181.28916641697288,
+              "exposures": {
+                "records": 320000,
+                "input_tokens": 21116900,
+                "full_targets": 21116900,
+                "answer_targets": 640000,
+                "supervised_targets": 21116900
+              }
+            },
+            {
+              "step": 5200,
+              "full_loss": 0.23997579514980316,
+              "answer_loss": 0.17419081926345825,
+              "elapsed_seconds": 188.68600724998396,
+              "exposures": {
+                "records": 332800,
+                "input_tokens": 21961700,
+                "full_targets": 21961700,
+                "answer_targets": 665600,
+                "supervised_targets": 21961700
+              }
+            },
+            {
+              "step": 5400,
+              "full_loss": 0.23233340680599213,
+              "answer_loss": 0.109573133289814,
+              "elapsed_seconds": 195.8622043330688,
+              "exposures": {
+                "records": 345600,
+                "input_tokens": 22805240,
+                "full_targets": 22805240,
+                "answer_targets": 691200,
+                "supervised_targets": 22805240
+              }
+            },
+            {
+              "step": 5600,
+              "full_loss": 0.2234613299369812,
+              "answer_loss": 0.09259437769651413,
+              "elapsed_seconds": 203.03020795807242,
+              "exposures": {
+                "records": 358400,
+                "input_tokens": 23648920,
+                "full_targets": 23648920,
+                "answer_targets": 716800,
+                "supervised_targets": 23648920
+              }
+            },
+            {
+              "step": 5800,
+              "full_loss": 0.21722063422203064,
+              "answer_loss": 0.13158008456230164,
+              "elapsed_seconds": 210.22930829203688,
+              "exposures": {
+                "records": 371200,
+                "input_tokens": 24493600,
+                "full_targets": 24493600,
+                "answer_targets": 742400,
+                "supervised_targets": 24493600
+              }
+            },
+            {
+              "step": 6000,
+              "full_loss": 0.21519538760185242,
+              "answer_loss": 0.16084077954292297,
+              "elapsed_seconds": 217.38365887501277,
+              "exposures": {
+                "records": 384000,
+                "input_tokens": 25338400,
+                "full_targets": 25338400,
+                "answer_targets": 768000,
+                "supervised_targets": 25338400
+              }
+            }
+          ],
+          "initial_state_sha256": "b98991c92ca8f0022695765e88afef2558a59b79d7c5db74782bfd43887e80b6",
+          "schedule_sha256": "bf29ccc2ac6366857d3be889f329ae9e865f1f2b7898220722efc51d8cae0325",
+          "rows_sha256": "c27a3f1def83ea60c4e411a52ecba180476e89e8b20241e3cbfc9c1e70521215"
+        },
+        "answer_only": {
+          "objective": "answer_only",
+          "stopped_step": 6000,
+          "competence_gate_pass": false,
+          "checkpoints": [
+            {
+              "step": 2000,
+              "development": {
+                "exact": {
+                  "n": 320,
+                  "correct": 42
+                },
+                "legible": 320,
+                "terminated": 320,
+                "full_loss": 10.499932479858398,
+                "answer_loss": 3.4164930820465087,
+                "full_targets": 21120,
+                "answer_targets": 640
+              },
+              "gate_pass": false,
+              "exposures": {
+                "records": 128000,
+                "input_tokens": 8443760,
+                "full_targets": 8443760,
+                "answer_targets": 256000,
+                "supervised_targets": 256000
+              },
+              "elapsed_seconds": 72.24006333295256,
+              "checkpoint_sha256": "531618bc16339b2d4fe5736011bd03aebe2d48d6ed6dc624baa4be2cb3d5f2a6",
+              "state_sha256": "74dc546e52ec7e027519fece72f9eb357d90f4b622372cd034cd3bcb2a036661",
+              "schedule_prefix_sha256": "3b9acea88070f87ed4631f4bba8893043a19dd94d25f2f0bb15639ef9d8fbb76",
+              "evaluation": {
+                "train": {
+                  "exact": {
+                    "n": 1600,
+                    "correct": 1527
+                  },
+                  "legible": 1600,
+                  "terminated": 1600,
+                  "full_loss": 10.431816291809081,
+                  "answer_loss": 0.07674250595271587,
+                  "full_targets": 105600,
+                  "answer_targets": 3200
+                },
+                "dev": {
+                  "exact": {
+                    "n": 320,
+                    "correct": 42
+                  },
+                  "legible": 320,
+                  "terminated": 320,
+                  "full_loss": 10.499932479858398,
+                  "answer_loss": 3.4164930820465087,
+                  "full_targets": 21120,
+                  "answer_targets": 640
+                },
+                "test": {
+                  "exact": {
+                    "n": 320,
+                    "correct": 48
+                  },
+                  "legible": 320,
+                  "terminated": 320,
+                  "full_loss": 10.507869529724122,
+                  "answer_loss": 3.1984429359436035,
+                  "full_targets": 21120,
+                  "answer_targets": 640
+                }
+              }
+            },
+            {
+              "step": 6000,
+              "development": {
+                "exact": {
+                  "n": 320,
+                  "correct": 35
+                },
+                "legible": 320,
+                "terminated": 320,
+                "full_loss": 12.659252166748047,
+                "answer_loss": 4.888979053497314,
+                "full_targets": 21120,
+                "answer_targets": 640
+              },
+              "gate_pass": false,
+              "exposures": {
+                "records": 384000,
+                "input_tokens": 25338400,
+                "full_targets": 25338400,
+                "answer_targets": 768000,
+                "supervised_targets": 768000
+              },
+              "elapsed_seconds": 216.88524845789652,
+              "checkpoint_sha256": "aa17991e7fbb897f36b668f6052c9b9b99e8c6b6376a3f12fb647ef5596911a6",
+              "state_sha256": "2520bd1c1516a092947c85cf356d7c664208461e157174abf4422f7b841cc12d",
+              "schedule_prefix_sha256": "bf29ccc2ac6366857d3be889f329ae9e865f1f2b7898220722efc51d8cae0325",
+              "evaluation": {
+                "train": {
+                  "exact": {
+                    "n": 1600,
+                    "correct": 1600
+                  },
+                  "legible": 1600,
+                  "terminated": 1600,
+                  "full_loss": 12.553309173583985,
+                  "answer_loss": 4.613575205439702e-05,
+                  "full_targets": 105600,
+                  "answer_targets": 3200
+                },
+                "dev": {
+                  "exact": {
+                    "n": 320,
+                    "correct": 35
+                  },
+                  "legible": 320,
+                  "terminated": 320,
+                  "full_loss": 12.659252166748047,
+                  "answer_loss": 4.888979053497314,
+                  "full_targets": 21120,
+                  "answer_targets": 640
+                },
+                "test": {
+                  "exact": {
+                    "n": 320,
+                    "correct": 42
+                  },
+                  "legible": 320,
+                  "terminated": 320,
+                  "full_loss": 12.63003921508789,
+                  "answer_loss": 4.470025825500488,
+                  "full_targets": 21120,
+                  "answer_targets": 640
+                }
+              }
+            }
+          ],
+          "logs": [
+            {
+              "step": 1,
+              "full_loss": 3.318788528442383,
+              "answer_loss": 3.3331222534179688,
+              "elapsed_seconds": 0.037106916890479624,
+              "exposures": {
+                "records": 64,
+                "input_tokens": 4224,
+                "full_targets": 4224,
+                "answer_targets": 128,
+                "supervised_targets": 128
+              }
+            },
+            {
+              "step": 200,
+              "full_loss": 8.15118408203125,
+              "answer_loss": 1.0259552001953125,
+              "elapsed_seconds": 7.258671082905494,
+              "exposures": {
+                "records": 12800,
+                "input_tokens": 844840,
+                "full_targets": 844840,
+                "answer_targets": 25600,
+                "supervised_targets": 25600
+              }
+            },
+            {
+              "step": 400,
+              "full_loss": 7.514283657073975,
+              "answer_loss": 0.9123964905738831,
+              "elapsed_seconds": 14.38255662494339,
+              "exposures": {
+                "records": 25600,
+                "input_tokens": 1689280,
+                "full_targets": 1689280,
+                "answer_targets": 51200,
+                "supervised_targets": 51200
+              }
+            },
+            {
+              "step": 600,
+              "full_loss": 7.820752143859863,
+              "answer_loss": 0.8015158176422119,
+              "elapsed_seconds": 21.574303000001237,
+              "exposures": {
+                "records": 38400,
+                "input_tokens": 2532800,
+                "full_targets": 2532800,
+                "answer_targets": 76800,
+                "supervised_targets": 76800
+              }
+            },
+            {
+              "step": 800,
+              "full_loss": 8.168581008911133,
+              "answer_loss": 0.5300759673118591,
+              "elapsed_seconds": 28.81561549997423,
+              "exposures": {
+                "records": 51200,
+                "input_tokens": 3376900,
+                "full_targets": 3376900,
+                "answer_targets": 102400,
+                "supervised_targets": 102400
+              }
+            },
+            {
+              "step": 1000,
+              "full_loss": 8.6441011428833,
+              "answer_loss": 0.24310831725597382,
+              "elapsed_seconds": 35.992015832918696,
+              "exposures": {
+                "records": 64000,
+                "input_tokens": 4219220,
+                "full_targets": 4219220,
+                "answer_targets": 128000,
+                "supervised_targets": 128000
+              }
+            },
+            {
+              "step": 1200,
+              "full_loss": 8.806028366088867,
+              "answer_loss": 0.11440785229206085,
+              "elapsed_seconds": 43.10374683293048,
+              "exposures": {
+                "records": 76800,
+                "input_tokens": 5061760,
+                "full_targets": 5061760,
+                "answer_targets": 153600,
+                "supervised_targets": 153600
+              }
+            },
+            {
+              "step": 1400,
+              "full_loss": 9.78408432006836,
+              "answer_loss": 0.04998665302991867,
+              "elapsed_seconds": 50.38395799999125,
+              "exposures": {
+                "records": 89600,
+                "input_tokens": 5905620,
+                "full_targets": 5905620,
+                "answer_targets": 179200,
+                "supervised_targets": 179200
+              }
+            },
+            {
+              "step": 1600,
+              "full_loss": 9.707110404968262,
+              "answer_loss": 0.057729411870241165,
+              "elapsed_seconds": 57.60951741691679,
+              "exposures": {
+                "records": 102400,
+                "input_tokens": 6751380,
+                "full_targets": 6751380,
+                "answer_targets": 204800,
+                "supervised_targets": 204800
+              }
+            },
+            {
+              "step": 1800,
+              "full_loss": 9.88969612121582,
+              "answer_loss": 0.08561331778764725,
+              "elapsed_seconds": 64.79121624992695,
+              "exposures": {
+                "records": 115200,
+                "input_tokens": 7597640,
+                "full_targets": 7597640,
+                "answer_targets": 230400,
+                "supervised_targets": 230400
+              }
+            },
+            {
+              "step": 2000,
+              "full_loss": 10.478633880615234,
+              "answer_loss": 0.11891227215528488,
+              "elapsed_seconds": 71.92633304197807,
+              "exposures": {
+                "records": 128000,
+                "input_tokens": 8443760,
+                "full_targets": 8443760,
+                "answer_targets": 256000,
+                "supervised_targets": 256000
+              }
+            },
+            {
+              "step": 2200,
+              "full_loss": 10.716681480407715,
+              "answer_loss": 0.0037350310012698174,
+              "elapsed_seconds": 79.40071316692047,
+              "exposures": {
+                "records": 140800,
+                "input_tokens": 9288200,
+                "full_targets": 9288200,
+                "answer_targets": 281600,
+                "supervised_targets": 281600
+              }
+            },
+            {
+              "step": 2400,
+              "full_loss": 10.940062522888184,
+              "answer_loss": 0.00042031993507407606,
+              "elapsed_seconds": 86.64194979192689,
+              "exposures": {
+                "records": 153600,
+                "input_tokens": 10132780,
+                "full_targets": 10132780,
+                "answer_targets": 307200,
+                "supervised_targets": 307200
+              }
+            },
+            {
+              "step": 2600,
+              "full_loss": 11.198110580444336,
+              "answer_loss": 0.000249704928137362,
+              "elapsed_seconds": 93.76166637497954,
+              "exposures": {
+                "records": 166400,
+                "input_tokens": 10975600,
+                "full_targets": 10975600,
+                "answer_targets": 332800,
+                "supervised_targets": 332800
+              }
+            },
+            {
+              "step": 2800,
+              "full_loss": 11.301645278930664,
+              "answer_loss": 0.0002279296750202775,
+              "elapsed_seconds": 100.90786812489387,
+              "exposures": {
+                "records": 179200,
+                "input_tokens": 11822660,
+                "full_targets": 11822660,
+                "answer_targets": 358400,
+                "supervised_targets": 358400
+              }
+            },
+            {
+              "step": 3000,
+              "full_loss": 11.306285858154297,
+              "answer_loss": 0.00017372336878906935,
+              "elapsed_seconds": 108.0945879999781,
+              "exposures": {
+                "records": 192000,
+                "input_tokens": 12669840,
+                "full_targets": 12669840,
+                "answer_targets": 384000,
+                "supervised_targets": 384000
+              }
+            },
+            {
+              "step": 3200,
+              "full_loss": 11.4640474319458,
+              "answer_loss": 0.00015212834114208817,
+              "elapsed_seconds": 115.31252812489402,
+              "exposures": {
+                "records": 204800,
+                "input_tokens": 13513160,
+                "full_targets": 13513160,
+                "answer_targets": 409600,
+                "supervised_targets": 409600
+              }
+            },
+            {
+              "step": 3400,
+              "full_loss": 11.566232681274414,
+              "answer_loss": 0.00019648911256808788,
+              "elapsed_seconds": 122.7680802079849,
+              "exposures": {
+                "records": 217600,
+                "input_tokens": 14358020,
+                "full_targets": 14358020,
+                "answer_targets": 435200,
+                "supervised_targets": 435200
+              }
+            },
+            {
+              "step": 3600,
+              "full_loss": 11.55452823638916,
+              "answer_loss": 0.00012610346311703324,
+              "elapsed_seconds": 130.04583287495188,
+              "exposures": {
+                "records": 230400,
+                "input_tokens": 15202220,
+                "full_targets": 15202220,
+                "answer_targets": 460800,
+                "supervised_targets": 460800
+              }
+            },
+            {
+              "step": 3800,
+              "full_loss": 11.695677757263184,
+              "answer_loss": 0.00012139476893935353,
+              "elapsed_seconds": 137.19601199997123,
+              "exposures": {
+                "records": 243200,
+                "input_tokens": 16046220,
+                "full_targets": 16046220,
+                "answer_targets": 486400,
+                "supervised_targets": 486400
+              }
+            },
+            {
+              "step": 4000,
+              "full_loss": 11.75892448425293,
+              "answer_loss": 0.00010350366937927902,
+              "elapsed_seconds": 144.3780455419328,
+              "exposures": {
+                "records": 256000,
+                "input_tokens": 16892080,
+                "full_targets": 16892080,
+                "answer_targets": 512000,
+                "supervised_targets": 512000
+              }
+            },
+            {
+              "step": 4200,
+              "full_loss": 11.885756492614746,
+              "answer_loss": 9.17649085749872e-05,
+              "elapsed_seconds": 151.66440799995326,
+              "exposures": {
+                "records": 268800,
+                "input_tokens": 17739520,
+                "full_targets": 17739520,
+                "answer_targets": 537600,
+                "supervised_targets": 537600
+              }
+            },
+            {
+              "step": 4400,
+              "full_loss": 11.799337387084961,
+              "answer_loss": 8.784710371401161e-05,
+              "elapsed_seconds": 158.797952957917,
+              "exposures": {
+                "records": 281600,
+                "input_tokens": 18583460,
+                "full_targets": 18583460,
+                "answer_targets": 563200,
+                "supervised_targets": 563200
+              }
+            },
+            {
+              "step": 4600,
+              "full_loss": 11.856270790100098,
+              "answer_loss": 7.437691965606064e-05,
+              "elapsed_seconds": 165.94724395789672,
+              "exposures": {
+                "records": 294400,
+                "input_tokens": 19428260,
+                "full_targets": 19428260,
+                "answer_targets": 588800,
+                "supervised_targets": 588800
+              }
+            },
+            {
+              "step": 4800,
+              "full_loss": 12.039491653442383,
+              "answer_loss": 0.00010193280468229204,
+              "elapsed_seconds": 173.08209937496576,
+              "exposures": {
+                "records": 307200,
+                "input_tokens": 20272500,
+                "full_targets": 20272500,
+                "answer_targets": 614400,
+                "supervised_targets": 614400
+              }
+            },
+            {
+              "step": 5000,
+              "full_loss": 12.12370777130127,
+              "answer_loss": 8.695412543602288e-05,
+              "elapsed_seconds": 180.38559554191306,
+              "exposures": {
+                "records": 320000,
+                "input_tokens": 21116900,
+                "full_targets": 21116900,
+                "answer_targets": 640000,
+                "supervised_targets": 640000
+              }
+            },
+            {
+              "step": 5200,
+              "full_loss": 12.17417049407959,
+              "answer_loss": 6.793050124542788e-05,
+              "elapsed_seconds": 187.60249754192773,
+              "exposures": {
+                "records": 332800,
+                "input_tokens": 21961700,
+                "full_targets": 21961700,
+                "answer_targets": 665600,
+                "supervised_targets": 665600
+              }
+            },
+            {
+              "step": 5400,
+              "full_loss": 12.357324600219727,
+              "answer_loss": 7.396390719804913e-05,
+              "elapsed_seconds": 194.92084104195237,
+              "exposures": {
+                "records": 345600,
+                "input_tokens": 22805240,
+                "full_targets": 22805240,
+                "answer_targets": 691200,
+                "supervised_targets": 691200
+              }
+            },
+            {
+              "step": 5600,
+              "full_loss": 12.21349811553955,
+              "answer_loss": 6.042714085197076e-05,
+              "elapsed_seconds": 202.05607224989217,
+              "exposures": {
+                "records": 358400,
+                "input_tokens": 23648920,
+                "full_targets": 23648920,
+                "answer_targets": 716800,
+                "supervised_targets": 716800
+              }
+            },
+            {
+              "step": 5800,
+              "full_loss": 12.549088478088379,
+              "answer_loss": 4.67527934233658e-05,
+              "elapsed_seconds": 209.41942558297887,
+              "exposures": {
+                "records": 371200,
+                "input_tokens": 24493600,
+                "full_targets": 24493600,
+                "answer_targets": 742400,
+                "supervised_targets": 742400
+              }
+            },
+            {
+              "step": 6000,
+              "full_loss": 12.566646575927734,
+              "answer_loss": 4.906443791696802e-05,
+              "elapsed_seconds": 216.57241108291782,
+              "exposures": {
+                "records": 384000,
+                "input_tokens": 25338400,
+                "full_targets": 25338400,
+                "answer_targets": 768000,
+                "supervised_targets": 768000
+              }
+            }
+          ],
+          "initial_state_sha256": "b98991c92ca8f0022695765e88afef2558a59b79d7c5db74782bfd43887e80b6",
+          "schedule_sha256": "bf29ccc2ac6366857d3be889f329ae9e865f1f2b7898220722efc51d8cae0325",
+          "rows_sha256": "c27a3f1def83ea60c4e411a52ecba180476e89e8b20241e3cbfc9c1e70521215"
+        }
+      },
+      "manifest_sha256": "15994c118f1eeafa21880daadf5931f8e04946655a9cce5a04ed1e4e15916d68"
+    },
+    "atomic": {
+      "summary": {
+        "config": {
+          "version": "v0.4-onehop-objective-control",
+          "arm": "atomic",
+          "seed": 43,
+          "data_seed": 1041,
+          "sizes": {
+            "train": 800,
+            "dev": 160,
+            "test": 160
+          },
+          "batch": 64,
+          "lr": 0.003,
+          "initial_steps": 2000,
+          "max_steps": 6000,
+          "gate": 0.95,
+          "architecture": {
+            "width": 48,
+            "layers": 3,
+            "heads": 4,
+            "max_length": 256
+          },
+          "vocabulary": {
+            "<pad>": 0,
+            "<answer>": 1,
+            "<bos>": 2,
+            "<eos>": 3,
+            "ps:1": 4,
+            "ps:100001": 5,
+            "ps:1001": 6,
+            "ps:100101": 7,
+            "ps:101": 8,
+            "ps:1011": 9,
+            "ps:11": 10,
+            "ps:1101": 11,
+            "ps:111": 12,
+            "ps:11101": 13,
+            "ps:1111": 14,
+            "ps:11111": 15
+          },
+          "parameters": 70816,
+          "initial_state_sha256": "8a5947fee298c34181794ca894e3119e5a95f8e6a18bb6d6ca9667cd69c998dc",
+          "schedule_sha256": "bf29ccc2ac6366857d3be889f329ae9e865f1f2b7898220722efc51d8cae0325",
+          "schedule_seed": 143,
+          "rows_sha256": "c1b20414d77a21e847cc8ba8220f37c78036c90e6d12146dc67e3a5b1fde36fa",
+          "worlds_sha256": "6af16a60242f2dbb63c0a3a304598ebb1683b8ebb17bb0bd3c0a62c6cfaa46db",
+          "catalog_sha256": "5b965a78ed58f062eb7bf8b6c7cbfd97c1e325fb6cab2c9c111501a3d180cdc3",
+          "torch_version": "2.14.0",
+          "source_sha256": {
+            "graphs.py": "d0557bfcc325b0bdd2a3566c30d10d0228fab9de665b0a2503918e70bea222ee",
+            "model.py": "917eddf76f5969f44acf6d09639a61133b34cb4c32e37d6e90d7d7a34dd56099",
+            "native.py": "bb0d278dd7b74a1429657c57a3e9fec16a40aefc7a5748144c229f8b11e0db72"
+          },
+          "control_source_sha256": "b831b9fc736b0d42eb856df6735030926eb771aff8db122d1ed0bb1355af17de",
+          "declared_design": true,
+          "scope": "Exploratory reused-world calibration. Within-arm paired objectives; no novelty claim."
+        },
+        "paired_checkpoint_steps": [
+          2000,
+          6000
+        ],
+        "stopped_steps": {
+          "full": 6000,
+          "answer_only": 6000
+        },
+        "gate_pass": {
+          "full": false,
+          "answer_only": false
+        },
+        "comparison": "Use common checkpoint steps only for paired exposure comparisons; unequal stopped endpoints are not compute matched."
+      },
+      "metrics": {
+        "full": {
+          "objective": "full",
+          "stopped_step": 6000,
+          "competence_gate_pass": false,
+          "checkpoints": [
+            {
+              "step": 2000,
+              "development": {
+                "exact": {
+                  "n": 320,
+                  "correct": 40
+                },
+                "legible": 320,
+                "terminated": 320,
+                "full_loss": 3.0830727100372313,
+                "answer_loss": 4.276146459579468,
+                "full_targets": 11520,
+                "answer_targets": 640
+              },
+              "gate_pass": false,
+              "exposures": {
+                "records": 128000,
+                "input_tokens": 4608000,
+                "full_targets": 4608000,
+                "answer_targets": 256000,
+                "supervised_targets": 4608000
+              },
+              "elapsed_seconds": 35.95003254106268,
+              "checkpoint_sha256": "5bd3fcbcd2c81cd0d67ff205ca2b19ffbf6235cfdf3ffc8938f9a7f0e99b5a88",
+              "state_sha256": "65649d6c51b68cc37cd556eedf3870955c56aeb649afaa2288820712a8e29f08",
+              "schedule_prefix_sha256": "3b9acea88070f87ed4631f4bba8893043a19dd94d25f2f0bb15639ef9d8fbb76",
+              "evaluation": {
+                "train": {
+                  "exact": {
+                    "n": 1600,
+                    "correct": 1452
+                  },
+                  "legible": 1600,
+                  "terminated": 1600,
+                  "full_loss": 0.30793816804885865,
+                  "answer_loss": 0.1497090983390808,
+                  "full_targets": 57600,
+                  "answer_targets": 3200
+                },
+                "dev": {
+                  "exact": {
+                    "n": 320,
+                    "correct": 40
+                  },
+                  "legible": 320,
+                  "terminated": 320,
+                  "full_loss": 3.0830727100372313,
+                  "answer_loss": 4.276146459579468,
+                  "full_targets": 11520,
+                  "answer_targets": 640
+                },
+                "test": {
+                  "exact": {
+                    "n": 320,
+                    "correct": 48
+                  },
+                  "legible": 320,
+                  "terminated": 320,
+                  "full_loss": 3.026828384399414,
+                  "answer_loss": 4.131328105926514,
+                  "full_targets": 11520,
+                  "answer_targets": 640
+                }
+              }
+            },
+            {
+              "step": 6000,
+              "development": {
+                "exact": {
+                  "n": 320,
+                  "correct": 42
+                },
+                "legible": 320,
+                "terminated": 320,
+                "full_loss": 4.029060935974121,
+                "answer_loss": 5.460115766525268,
+                "full_targets": 11520,
+                "answer_targets": 640
+              },
+              "gate_pass": false,
+              "exposures": {
+                "records": 384000,
+                "input_tokens": 13824000,
+                "full_targets": 13824000,
+                "answer_targets": 768000,
+                "supervised_targets": 13824000
+              },
+              "elapsed_seconds": 107.49434216599911,
+              "checkpoint_sha256": "e05326fd120151ee6c579057f4b9e535d26d89be4115ddc441580a547e3c22f7",
+              "state_sha256": "bd20508537e1a84424d09decaac5ca9e3f35f715addfde59f45f24782ff89d02",
+              "schedule_prefix_sha256": "bf29ccc2ac6366857d3be889f329ae9e865f1f2b7898220722efc51d8cae0325",
+              "evaluation": {
+                "train": {
+                  "exact": {
+                    "n": 1600,
+                    "correct": 1594
+                  },
+                  "legible": 1600,
+                  "terminated": 1600,
+                  "full_loss": 0.21268239378929138,
+                  "answer_loss": 0.008005021410062908,
+                  "full_targets": 57600,
+                  "answer_targets": 3200
+                },
+                "dev": {
+                  "exact": {
+                    "n": 320,
+                    "correct": 42
+                  },
+                  "legible": 320,
+                  "terminated": 320,
+                  "full_loss": 4.029060935974121,
+                  "answer_loss": 5.460115766525268,
+                  "full_targets": 11520,
+                  "answer_targets": 640
+                },
+                "test": {
+                  "exact": {
+                    "n": 320,
+                    "correct": 30
+                  },
+                  "legible": 320,
+                  "terminated": 320,
+                  "full_loss": 3.9295546054840087,
+                  "answer_loss": 5.54663200378418,
+                  "full_targets": 11520,
+                  "answer_targets": 640
+                }
+              }
+            }
+          ],
+          "logs": [
+            {
+              "step": 1,
+              "full_loss": 2.9116549491882324,
+              "answer_loss": 3.037844181060791,
+              "elapsed_seconds": 0.02014187502209097,
+              "exposures": {
+                "records": 64,
+                "input_tokens": 2304,
+                "full_targets": 2304,
+                "answer_targets": 128,
+                "supervised_targets": 2304
+              }
+            },
+            {
+              "step": 200,
+              "full_loss": 0.8977448344230652,
+              "answer_loss": 1.0188738107681274,
+              "elapsed_seconds": 3.5629989580484107,
+              "exposures": {
+                "records": 12800,
+                "input_tokens": 460800,
+                "full_targets": 460800,
+                "answer_targets": 25600,
+                "supervised_targets": 460800
+              }
+            },
+            {
+              "step": 400,
+              "full_loss": 0.813304603099823,
+              "answer_loss": 0.9432584643363953,
+              "elapsed_seconds": 7.182489208062179,
+              "exposures": {
+                "records": 25600,
+                "input_tokens": 921600,
+                "full_targets": 921600,
+                "answer_targets": 51200,
+                "supervised_targets": 921600
+              }
+            },
+            {
+              "step": 600,
+              "full_loss": 0.6714590787887573,
+              "answer_loss": 0.9546080827713013,
+              "elapsed_seconds": 10.80608516605571,
+              "exposures": {
+                "records": 38400,
+                "input_tokens": 1382400,
+                "full_targets": 1382400,
+                "answer_targets": 76800,
+                "supervised_targets": 1382400
+              }
+            },
+            {
+              "step": 800,
+              "full_loss": 0.5661795735359192,
+              "answer_loss": 0.6421728134155273,
+              "elapsed_seconds": 14.396309333038516,
+              "exposures": {
+                "records": 51200,
+                "input_tokens": 1843200,
+                "full_targets": 1843200,
+                "answer_targets": 102400,
+                "supervised_targets": 1843200
+              }
+            },
+            {
+              "step": 1000,
+              "full_loss": 0.44518914818763733,
+              "answer_loss": 0.3119507431983948,
+              "elapsed_seconds": 18.006150541012175,
+              "exposures": {
+                "records": 64000,
+                "input_tokens": 2304000,
+                "full_targets": 2304000,
+                "answer_targets": 128000,
+                "supervised_targets": 2304000
+              }
+            },
+            {
+              "step": 1200,
+              "full_loss": 0.39424198865890503,
+              "answer_loss": 0.25297510623931885,
+              "elapsed_seconds": 21.585958583047614,
+              "exposures": {
+                "records": 76800,
+                "input_tokens": 2764800,
+                "full_targets": 2764800,
+                "answer_targets": 153600,
+                "supervised_targets": 2764800
+              }
+            },
+            {
+              "step": 1400,
+              "full_loss": 0.39597752690315247,
+              "answer_loss": 0.32829150557518005,
+              "elapsed_seconds": 25.160437708022073,
+              "exposures": {
+                "records": 89600,
+                "input_tokens": 3225600,
+                "full_targets": 3225600,
+                "answer_targets": 179200,
+                "supervised_targets": 3225600
+              }
+            },
+            {
+              "step": 1600,
+              "full_loss": 0.31258609890937805,
+              "answer_loss": 0.1183835044503212,
+              "elapsed_seconds": 28.69882591604255,
+              "exposures": {
+                "records": 102400,
+                "input_tokens": 3686400,
+                "full_targets": 3686400,
+                "answer_targets": 204800,
+                "supervised_targets": 3686400
+              }
+            },
+            {
+              "step": 1800,
+              "full_loss": 0.29647940397262573,
+              "answer_loss": 0.039983510971069336,
+              "elapsed_seconds": 32.25734908308368,
+              "exposures": {
+                "records": 115200,
+                "input_tokens": 4147200,
+                "full_targets": 4147200,
+                "answer_targets": 230400,
+                "supervised_targets": 4147200
+              }
+            },
+            {
+              "step": 2000,
+              "full_loss": 0.2908441126346588,
+              "answer_loss": 0.09067806601524353,
+              "elapsed_seconds": 35.82033516606316,
+              "exposures": {
+                "records": 128000,
+                "input_tokens": 4608000,
+                "full_targets": 4608000,
+                "answer_targets": 256000,
+                "supervised_targets": 4608000
+              }
+            },
+            {
+              "step": 2200,
+              "full_loss": 0.309870183467865,
+              "answer_loss": 0.05569922924041748,
+              "elapsed_seconds": 39.51474075007718,
+              "exposures": {
+                "records": 140800,
+                "input_tokens": 5068800,
+                "full_targets": 5068800,
+                "answer_targets": 281600,
+                "supervised_targets": 5068800
+              }
+            },
+            {
+              "step": 2400,
+              "full_loss": 0.3062378764152527,
+              "answer_loss": 0.0567164272069931,
+              "elapsed_seconds": 43.090357166016474,
+              "exposures": {
+                "records": 153600,
+                "input_tokens": 5529600,
+                "full_targets": 5529600,
+                "answer_targets": 307200,
+                "supervised_targets": 5529600
+              }
+            },
+            {
+              "step": 2600,
+              "full_loss": 0.2836455702781677,
+              "answer_loss": 0.02306273579597473,
+              "elapsed_seconds": 46.687780625070445,
+              "exposures": {
+                "records": 166400,
+                "input_tokens": 5990400,
+                "full_targets": 5990400,
+                "answer_targets": 332800,
+                "supervised_targets": 5990400
+              }
+            },
+            {
+              "step": 2800,
+              "full_loss": 0.2674143314361572,
+              "answer_loss": 0.1103290393948555,
+              "elapsed_seconds": 50.22985591599718,
+              "exposures": {
+                "records": 179200,
+                "input_tokens": 6451200,
+                "full_targets": 6451200,
+                "answer_targets": 358400,
+                "supervised_targets": 6451200
+              }
+            },
+            {
+              "step": 3000,
+              "full_loss": 0.30780914425849915,
+              "answer_loss": 0.08464418351650238,
+              "elapsed_seconds": 53.793636374990456,
+              "exposures": {
+                "records": 192000,
+                "input_tokens": 6912000,
+                "full_targets": 6912000,
+                "answer_targets": 384000,
+                "supervised_targets": 6912000
+              }
+            },
+            {
+              "step": 3200,
+              "full_loss": 0.22824756801128387,
+              "answer_loss": 0.0053935968317091465,
+              "elapsed_seconds": 57.32248875009827,
+              "exposures": {
+                "records": 204800,
+                "input_tokens": 7372800,
+                "full_targets": 7372800,
+                "answer_targets": 409600,
+                "supervised_targets": 7372800
+              }
+            },
+            {
+              "step": 3400,
+              "full_loss": 0.328499436378479,
+              "answer_loss": 0.14178915321826935,
+              "elapsed_seconds": 60.891957374988124,
+              "exposures": {
+                "records": 217600,
+                "input_tokens": 7833600,
+                "full_targets": 7833600,
+                "answer_targets": 435200,
+                "supervised_targets": 7833600
+              }
+            },
+            {
+              "step": 3600,
+              "full_loss": 0.21379691362380981,
+              "answer_loss": 0.0031381265725940466,
+              "elapsed_seconds": 64.43371145799756,
+              "exposures": {
+                "records": 230400,
+                "input_tokens": 8294400,
+                "full_targets": 8294400,
+                "answer_targets": 460800,
+                "supervised_targets": 8294400
+              }
+            },
+            {
+              "step": 3800,
+              "full_loss": 0.2591434717178345,
+              "answer_loss": 0.0222922470420599,
+              "elapsed_seconds": 68.01957758306526,
+              "exposures": {
+                "records": 243200,
+                "input_tokens": 8755200,
+                "full_targets": 8755200,
+                "answer_targets": 486400,
+                "supervised_targets": 8755200
+              }
+            },
+            {
+              "step": 4000,
+              "full_loss": 0.2241431623697281,
+              "answer_loss": 0.022051237523555756,
+              "elapsed_seconds": 71.57586333306972,
+              "exposures": {
+                "records": 256000,
+                "input_tokens": 9216000,
+                "full_targets": 9216000,
+                "answer_targets": 512000,
+                "supervised_targets": 9216000
+              }
+            },
+            {
+              "step": 4200,
+              "full_loss": 0.22876408696174622,
+              "answer_loss": 0.027525676414370537,
+              "elapsed_seconds": 75.14711350004654,
+              "exposures": {
+                "records": 268800,
+                "input_tokens": 9676800,
+                "full_targets": 9676800,
+                "answer_targets": 537600,
+                "supervised_targets": 9676800
+              }
+            },
+            {
+              "step": 4400,
+              "full_loss": 0.23317405581474304,
+              "answer_loss": 0.008150795474648476,
+              "elapsed_seconds": 78.7543093750719,
+              "exposures": {
+                "records": 281600,
+                "input_tokens": 10137600,
+                "full_targets": 10137600,
+                "answer_targets": 563200,
+                "supervised_targets": 10137600
+              }
+            },
+            {
+              "step": 4600,
+              "full_loss": 0.21281830966472626,
+              "answer_loss": 0.002587723545730114,
+              "elapsed_seconds": 82.32774416601751,
+              "exposures": {
+                "records": 294400,
+                "input_tokens": 10598400,
+                "full_targets": 10598400,
+                "answer_targets": 588800,
+                "supervised_targets": 10598400
+              }
+            },
+            {
+              "step": 4800,
+              "full_loss": 0.42666366696357727,
+              "answer_loss": 0.3480398654937744,
+              "elapsed_seconds": 85.90986400004476,
+              "exposures": {
+                "records": 307200,
+                "input_tokens": 11059200,
+                "full_targets": 11059200,
+                "answer_targets": 614400,
+                "supervised_targets": 11059200
+              }
+            },
+            {
+              "step": 5000,
+              "full_loss": 0.2206699252128601,
+              "answer_loss": 0.008452094160020351,
+              "elapsed_seconds": 89.50758904102258,
+              "exposures": {
+                "records": 320000,
+                "input_tokens": 11520000,
+                "full_targets": 11520000,
+                "answer_targets": 640000,
+                "supervised_targets": 11520000
+              }
+            },
+            {
+              "step": 5200,
+              "full_loss": 0.21983426809310913,
+              "answer_loss": 0.0016930637648329139,
+              "elapsed_seconds": 93.06800725008361,
+              "exposures": {
+                "records": 332800,
+                "input_tokens": 11980800,
+                "full_targets": 11980800,
+                "answer_targets": 665600,
+                "supervised_targets": 11980800
+              }
+            },
+            {
+              "step": 5400,
+              "full_loss": 0.21972094476222992,
+              "answer_loss": 0.008976630866527557,
+              "elapsed_seconds": 96.62407258304302,
+              "exposures": {
+                "records": 345600,
+                "input_tokens": 12441600,
+                "full_targets": 12441600,
+                "answer_targets": 691200,
+                "supervised_targets": 12441600
+              }
+            },
+            {
+              "step": 5600,
+              "full_loss": 0.2094477117061615,
+              "answer_loss": 0.0017970666522160172,
+              "elapsed_seconds": 100.21546837501228,
+              "exposures": {
+                "records": 358400,
+                "input_tokens": 12902400,
+                "full_targets": 12902400,
+                "answer_targets": 716800,
+                "supervised_targets": 12902400
+              }
+            },
+            {
+              "step": 5800,
+              "full_loss": 0.2871268689632416,
+              "answer_loss": 0.16008657217025757,
+              "elapsed_seconds": 103.77417941601016,
+              "exposures": {
+                "records": 371200,
+                "input_tokens": 13363200,
+                "full_targets": 13363200,
+                "answer_targets": 742400,
+                "supervised_targets": 13363200
+              }
+            },
+            {
+              "step": 6000,
+              "full_loss": 0.2211456447839737,
+              "answer_loss": 0.008165321312844753,
+              "elapsed_seconds": 107.36057254101615,
+              "exposures": {
+                "records": 384000,
+                "input_tokens": 13824000,
+                "full_targets": 13824000,
+                "answer_targets": 768000,
+                "supervised_targets": 13824000
+              }
+            }
+          ],
+          "initial_state_sha256": "8a5947fee298c34181794ca894e3119e5a95f8e6a18bb6d6ca9667cd69c998dc",
+          "schedule_sha256": "bf29ccc2ac6366857d3be889f329ae9e865f1f2b7898220722efc51d8cae0325",
+          "rows_sha256": "c1b20414d77a21e847cc8ba8220f37c78036c90e6d12146dc67e3a5b1fde36fa"
+        },
+        "answer_only": {
+          "objective": "answer_only",
+          "stopped_step": 6000,
+          "competence_gate_pass": false,
+          "checkpoints": [
+            {
+              "step": 2000,
+              "development": {
+                "exact": {
+                  "n": 320,
+                  "correct": 46
+                },
+                "legible": 320,
+                "terminated": 320,
+                "full_loss": 9.394045066833495,
+                "answer_loss": 4.013628673553467,
+                "full_targets": 11520,
+                "answer_targets": 640
+              },
+              "gate_pass": false,
+              "exposures": {
+                "records": 128000,
+                "input_tokens": 4608000,
+                "full_targets": 4608000,
+                "answer_targets": 256000,
+                "supervised_targets": 256000
+              },
+              "elapsed_seconds": 35.810037999995984,
+              "checkpoint_sha256": "28a64d228913c23927527bc02272e7f96722e8b26f0b2ba29a5df952716d365a",
+              "state_sha256": "723070eff53f854c32e64a91b069b26ec7b0fde033f4c7da71c2ceda71bac622",
+              "schedule_prefix_sha256": "3b9acea88070f87ed4631f4bba8893043a19dd94d25f2f0bb15639ef9d8fbb76",
+              "evaluation": {
+                "train": {
+                  "exact": {
+                    "n": 1600,
+                    "correct": 1600
+                  },
+                  "legible": 1600,
+                  "terminated": 1600,
+                  "full_loss": 9.175236320495605,
+                  "answer_loss": 0.00016375503328163176,
+                  "full_targets": 57600,
+                  "answer_targets": 3200
+                },
+                "dev": {
+                  "exact": {
+                    "n": 320,
+                    "correct": 46
+                  },
+                  "legible": 320,
+                  "terminated": 320,
+                  "full_loss": 9.394045066833495,
+                  "answer_loss": 4.013628673553467,
+                  "full_targets": 11520,
+                  "answer_targets": 640
+                },
+                "test": {
+                  "exact": {
+                    "n": 320,
+                    "correct": 36
+                  },
+                  "legible": 320,
+                  "terminated": 320,
+                  "full_loss": 9.448174285888673,
+                  "answer_loss": 3.9709660053253173,
+                  "full_targets": 11520,
+                  "answer_targets": 640
+                }
+              }
+            },
+            {
+              "step": 6000,
+              "development": {
+                "exact": {
+                  "n": 320,
+                  "correct": 46
+                },
+                "legible": 320,
+                "terminated": 320,
+                "full_loss": 11.212182235717773,
+                "answer_loss": 4.815476512908935,
+                "full_targets": 11520,
+                "answer_targets": 640
+              },
+              "gate_pass": false,
+              "exposures": {
+                "records": 384000,
+                "input_tokens": 13824000,
+                "full_targets": 13824000,
+                "answer_targets": 768000,
+                "supervised_targets": 768000
+              },
+              "elapsed_seconds": 107.71694829210173,
+              "checkpoint_sha256": "1fa231c84377691d5620ac11ca8b88fbcb0bdaba9559b98531cfbb9b9a188f7a",
+              "state_sha256": "36f1e3b090c88f08aa261c4b16988f25f43475b5387108c45cbe1b17e3584219",
+              "schedule_prefix_sha256": "bf29ccc2ac6366857d3be889f329ae9e865f1f2b7898220722efc51d8cae0325",
+              "evaluation": {
+                "train": {
+                  "exact": {
+                    "n": 1600,
+                    "correct": 1600
+                  },
+                  "legible": 1600,
+                  "terminated": 1600,
+                  "full_loss": 10.941463851928711,
+                  "answer_loss": 1.765362725564046e-05,
+                  "full_targets": 57600,
+                  "answer_targets": 3200
+                },
+                "dev": {
+                  "exact": {
+                    "n": 320,
+                    "correct": 46
+                  },
+                  "legible": 320,
+                  "terminated": 320,
+                  "full_loss": 11.212182235717773,
+                  "answer_loss": 4.815476512908935,
+                  "full_targets": 11520,
+                  "answer_targets": 640
+                },
+                "test": {
+                  "exact": {
+                    "n": 320,
+                    "correct": 40
+                  },
+                  "legible": 320,
+                  "terminated": 320,
+                  "full_loss": 11.236250495910644,
+                  "answer_loss": 4.77556791305542,
+                  "full_targets": 11520,
+                  "answer_targets": 640
+                }
+              }
+            }
+          ],
+          "logs": [
+            {
+              "step": 1,
+              "full_loss": 2.9116549491882324,
+              "answer_loss": 3.037844181060791,
+              "elapsed_seconds": 0.02124950010329485,
+              "exposures": {
+                "records": 64,
+                "input_tokens": 2304,
+                "full_targets": 2304,
+                "answer_targets": 128,
+                "supervised_targets": 128
+              }
+            },
+            {
+              "step": 200,
+              "full_loss": 6.059999465942383,
+              "answer_loss": 0.8203901052474976,
+              "elapsed_seconds": 3.60414141707588,
+              "exposures": {
+                "records": 12800,
+                "input_tokens": 460800,
+                "full_targets": 460800,
+                "answer_targets": 25600,
+                "supervised_targets": 25600
+              }
+            },
+            {
+              "step": 400,
+              "full_loss": 6.6535491943359375,
+              "answer_loss": 0.2409202605485916,
+              "elapsed_seconds": 7.174033917021006,
+              "exposures": {
+                "records": 25600,
+                "input_tokens": 921600,
+                "full_targets": 921600,
+                "answer_targets": 51200,
+                "supervised_targets": 51200
+              }
+            },
+            {
+              "step": 600,
+              "full_loss": 7.822403907775879,
+              "answer_loss": 0.08635657280683517,
+              "elapsed_seconds": 10.746653750073165,
+              "exposures": {
+                "records": 38400,
+                "input_tokens": 1382400,
+                "full_targets": 1382400,
+                "answer_targets": 76800,
+                "supervised_targets": 76800
+              }
+            },
+            {
+              "step": 800,
+              "full_loss": 7.971446514129639,
+              "answer_loss": 0.03481798246502876,
+              "elapsed_seconds": 14.312170749995857,
+              "exposures": {
+                "records": 51200,
+                "input_tokens": 1843200,
+                "full_targets": 1843200,
+                "answer_targets": 102400,
+                "supervised_targets": 102400
+              }
+            },
+            {
+              "step": 1000,
+              "full_loss": 8.401002883911133,
+              "answer_loss": 0.0006389504997059703,
+              "elapsed_seconds": 17.866067334078252,
+              "exposures": {
+                "records": 64000,
+                "input_tokens": 2304000,
+                "full_targets": 2304000,
+                "answer_targets": 128000,
+                "supervised_targets": 128000
+              }
+            },
+            {
+              "step": 1200,
+              "full_loss": 8.71119213104248,
+              "answer_loss": 0.0005110599449835718,
+              "elapsed_seconds": 21.40821591706481,
+              "exposures": {
+                "records": 76800,
+                "input_tokens": 2764800,
+                "full_targets": 2764800,
+                "answer_targets": 153600,
+                "supervised_targets": 153600
+              }
+            },
+            {
+              "step": 1400,
+              "full_loss": 8.71408748626709,
+              "answer_loss": 0.0002797642082441598,
+              "elapsed_seconds": 24.918406875105575,
+              "exposures": {
+                "records": 89600,
+                "input_tokens": 3225600,
+                "full_targets": 3225600,
+                "answer_targets": 179200,
+                "supervised_targets": 179200
+              }
+            },
+            {
+              "step": 1600,
+              "full_loss": 8.947772026062012,
+              "answer_loss": 0.00019549661374185234,
+              "elapsed_seconds": 28.4880843750434,
+              "exposures": {
+                "records": 102400,
+                "input_tokens": 3686400,
+                "full_targets": 3686400,
+                "answer_targets": 204800,
+                "supervised_targets": 204800
+              }
+            },
+            {
+              "step": 1800,
+              "full_loss": 9.070368766784668,
+              "answer_loss": 0.0001983163965633139,
+              "elapsed_seconds": 32.14247062499635,
+              "exposures": {
+                "records": 115200,
+                "input_tokens": 4147200,
+                "full_targets": 4147200,
+                "answer_targets": 230400,
+                "supervised_targets": 230400
+              }
+            },
+            {
+              "step": 2000,
+              "full_loss": 9.11622428894043,
+              "answer_loss": 0.00017820806533563882,
+              "elapsed_seconds": 35.675700750085525,
+              "exposures": {
+                "records": 128000,
+                "input_tokens": 4608000,
+                "full_targets": 4608000,
+                "answer_targets": 256000,
+                "supervised_targets": 256000
+              }
+            },
+            {
+              "step": 2200,
+              "full_loss": 9.211748123168945,
+              "answer_loss": 0.00012948097719345242,
+              "elapsed_seconds": 39.49025454209186,
+              "exposures": {
+                "records": 140800,
+                "input_tokens": 5068800,
+                "full_targets": 5068800,
+                "answer_targets": 281600,
+                "supervised_targets": 281600
+              }
+            },
+            {
+              "step": 2400,
+              "full_loss": 9.361644744873047,
+              "answer_loss": 0.00010599508823361248,
+              "elapsed_seconds": 43.14194695907645,
+              "exposures": {
+                "records": 153600,
+                "input_tokens": 5529600,
+                "full_targets": 5529600,
+                "answer_targets": 307200,
+                "supervised_targets": 307200
+              }
+            },
+            {
+              "step": 2600,
+              "full_loss": 9.450416564941406,
+              "answer_loss": 0.00010686625319067389,
+              "elapsed_seconds": 46.649555209092796,
+              "exposures": {
+                "records": 166400,
+                "input_tokens": 5990400,
+                "full_targets": 5990400,
+                "answer_targets": 332800,
+                "supervised_targets": 332800
+              }
+            },
+            {
+              "step": 2800,
+              "full_loss": 9.560769081115723,
+              "answer_loss": 0.00010204087448073551,
+              "elapsed_seconds": 50.22378800006118,
+              "exposures": {
+                "records": 179200,
+                "input_tokens": 6451200,
+                "full_targets": 6451200,
+                "answer_targets": 358400,
+                "supervised_targets": 358400
+              }
+            },
+            {
+              "step": 3000,
+              "full_loss": 9.577230453491211,
+              "answer_loss": 8.244530908996239e-05,
+              "elapsed_seconds": 53.823878584080376,
+              "exposures": {
+                "records": 192000,
+                "input_tokens": 6912000,
+                "full_targets": 6912000,
+                "answer_targets": 384000,
+                "supervised_targets": 384000
+              }
+            },
+            {
+              "step": 3200,
+              "full_loss": 9.715070724487305,
+              "answer_loss": 7.560835365438834e-05,
+              "elapsed_seconds": 57.42680141702294,
+              "exposures": {
+                "records": 204800,
+                "input_tokens": 7372800,
+                "full_targets": 7372800,
+                "answer_targets": 409600,
+                "supervised_targets": 409600
+              }
+            },
+            {
+              "step": 3400,
+              "full_loss": 9.829920768737793,
+              "answer_loss": 7.307383202714846e-05,
+              "elapsed_seconds": 61.099629167001694,
+              "exposures": {
+                "records": 217600,
+                "input_tokens": 7833600,
+                "full_targets": 7833600,
+                "answer_targets": 435200,
+                "supervised_targets": 435200
+              }
+            },
+            {
+              "step": 3600,
+              "full_loss": 9.97494888305664,
+              "answer_loss": 5.79511106479913e-05,
+              "elapsed_seconds": 64.71289562503807,
+              "exposures": {
+                "records": 230400,
+                "input_tokens": 8294400,
+                "full_targets": 8294400,
+                "answer_targets": 460800,
+                "supervised_targets": 460800
+              }
+            },
+            {
+              "step": 3800,
+              "full_loss": 10.044514656066895,
+              "answer_loss": 4.725909457192756e-05,
+              "elapsed_seconds": 68.33411116700154,
+              "exposures": {
+                "records": 243200,
+                "input_tokens": 8755200,
+                "full_targets": 8755200,
+                "answer_targets": 486400,
+                "supervised_targets": 486400
+              }
+            },
+            {
+              "step": 4000,
+              "full_loss": 10.082674026489258,
+              "answer_loss": 4.684273881139234e-05,
+              "elapsed_seconds": 71.92543000006117,
+              "exposures": {
+                "records": 256000,
+                "input_tokens": 9216000,
+                "full_targets": 9216000,
+                "answer_targets": 512000,
+                "supervised_targets": 512000
+              }
+            },
+            {
+              "step": 4200,
+              "full_loss": 10.16118335723877,
+              "answer_loss": 4.02942459913902e-05,
+              "elapsed_seconds": 75.5043407920748,
+              "exposures": {
+                "records": 268800,
+                "input_tokens": 9676800,
+                "full_targets": 9676800,
+                "answer_targets": 537600,
+                "supervised_targets": 537600
+              }
+            },
+            {
+              "step": 4400,
+              "full_loss": 10.325640678405762,
+              "answer_loss": 4.8664041969459504e-05,
+              "elapsed_seconds": 79.08497262501623,
+              "exposures": {
+                "records": 281600,
+                "input_tokens": 10137600,
+                "full_targets": 10137600,
+                "answer_targets": 563200,
+                "supervised_targets": 563200
+              }
+            },
+            {
+              "step": 4600,
+              "full_loss": 10.32107162475586,
+              "answer_loss": 3.701939931488596e-05,
+              "elapsed_seconds": 82.63865487510338,
+              "exposures": {
+                "records": 294400,
+                "input_tokens": 10598400,
+                "full_targets": 10598400,
+                "answer_targets": 588800,
+                "supervised_targets": 588800
+              }
+            },
+            {
+              "step": 4800,
+              "full_loss": 10.424059867858887,
+              "answer_loss": 3.611110878409818e-05,
+              "elapsed_seconds": 86.18448145908769,
+              "exposures": {
+                "records": 307200,
+                "input_tokens": 11059200,
+                "full_targets": 11059200,
+                "answer_targets": 614400,
+                "supervised_targets": 614400
+              }
+            },
+            {
+              "step": 5000,
+              "full_loss": 10.374445915222168,
+              "answer_loss": 3.027614002348855e-05,
+              "elapsed_seconds": 89.7695960419951,
+              "exposures": {
+                "records": 320000,
+                "input_tokens": 11520000,
+                "full_targets": 11520000,
+                "answer_targets": 640000,
+                "supervised_targets": 640000
+              }
+            },
+            {
+              "step": 5200,
+              "full_loss": 10.542168617248535,
+              "answer_loss": 2.1486015612026677e-05,
+              "elapsed_seconds": 93.3051849170588,
+              "exposures": {
+                "records": 332800,
+                "input_tokens": 11980800,
+                "full_targets": 11980800,
+                "answer_targets": 665600,
+                "supervised_targets": 665600
+              }
+            },
+            {
+              "step": 5400,
+              "full_loss": 10.633824348449707,
+              "answer_loss": 2.5699069738038816e-05,
+              "elapsed_seconds": 96.86924154206645,
+              "exposures": {
+                "records": 345600,
+                "input_tokens": 12441600,
+                "full_targets": 12441600,
+                "answer_targets": 691200,
+                "supervised_targets": 691200
+              }
+            },
+            {
+              "step": 5600,
+              "full_loss": 10.738669395446777,
+              "answer_loss": 2.4276079784613103e-05,
+              "elapsed_seconds": 100.45229187502991,
+              "exposures": {
+                "records": 358400,
+                "input_tokens": 12902400,
+                "full_targets": 12902400,
+                "answer_targets": 716800,
+                "supervised_targets": 716800
+              }
+            },
+            {
+              "step": 5800,
+              "full_loss": 10.935909271240234,
+              "answer_loss": 2.203727672167588e-05,
+              "elapsed_seconds": 104.00879895908292,
+              "exposures": {
+                "records": 371200,
+                "input_tokens": 13363200,
+                "full_targets": 13363200,
+                "answer_targets": 742400,
+                "supervised_targets": 742400
+              }
+            },
+            {
+              "step": 6000,
+              "full_loss": 10.987128257751465,
+              "answer_loss": 1.771897768776398e-05,
+              "elapsed_seconds": 107.58623504207935,
+              "exposures": {
+                "records": 384000,
+                "input_tokens": 13824000,
+                "full_targets": 13824000,
+                "answer_targets": 768000,
+                "supervised_targets": 768000
+              }
+            }
+          ],
+          "initial_state_sha256": "8a5947fee298c34181794ca894e3119e5a95f8e6a18bb6d6ca9667cd69c998dc",
+          "schedule_sha256": "bf29ccc2ac6366857d3be889f329ae9e865f1f2b7898220722efc51d8cae0325",
+          "rows_sha256": "c1b20414d77a21e847cc8ba8220f37c78036c90e6d12146dc67e3a5b1fde36fa"
+        }
+      },
+      "manifest_sha256": "ca36d61c70984c232714005865ed0c938b5c2ab9ad70950240f6772f79d7b1ba"
+    }
+  },
+  "readbacks": {
+    "text/full": {
+      "step": 6000,
+      "checkpoint_sha256": "f3b4c300829bb95aac5194c56189532cd3b47ff4b3872ac54ac3b0c460da252c",
+      "state_sha256": "1e418c0b628b3e835b3c92638670c4db696c9c2bece6e6857424208d36decc31",
+      "reproduced_test_generations": 320,
+      "exact": {
+        "n": 320,
+        "correct": 47
+      }
+    },
+    "text/answer_only": {
+      "step": 6000,
+      "checkpoint_sha256": "aa17991e7fbb897f36b668f6052c9b9b99e8c6b6376a3f12fb647ef5596911a6",
+      "state_sha256": "2520bd1c1516a092947c85cf356d7c664208461e157174abf4422f7b841cc12d",
+      "reproduced_test_generations": 320,
+      "exact": {
+        "n": 320,
+        "correct": 42
+      }
+    },
+    "atomic/full": {
+      "step": 6000,
+      "checkpoint_sha256": "e05326fd120151ee6c579057f4b9e535d26d89be4115ddc441580a547e3c22f7",
+      "state_sha256": "bd20508537e1a84424d09decaac5ca9e3f35f715addfde59f45f24782ff89d02",
+      "reproduced_test_generations": 320,
+      "exact": {
+        "n": 320,
+        "correct": 30
+      }
+    },
+    "atomic/answer_only": {
+      "step": 6000,
+      "checkpoint_sha256": "1fa231c84377691d5620ac11ca8b88fbcb0bdaba9559b98531cfbb9b9a188f7a",
+      "state_sha256": "36f1e3b090c88f08aa261c4b16988f25f43475b5387108c45cbe1b17e3584219",
+      "reproduced_test_generations": 320,
+      "exact": {
+        "n": 320,
+        "correct": 40
+      }
+    }
+  }
+}
