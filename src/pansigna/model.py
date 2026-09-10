@@ -39,8 +39,9 @@ class TinyLM(nn.Module):
             if layer == capture_layer:
                 captured = h.clone()
             if intervention is not None and layer == intervention[0]:
-                _, donor, basis = intervention
+                _, donor, basis = intervention[:3]
                 h = h.clone()
                 idx = torch.arange(len(h))
-                h[idx, lengths-1] = patch_subspace(h[idx, lengths-1], donor, basis)
+                positions = intervention[3] if len(intervention) == 4 else lengths-1
+                h[idx, positions] = patch_subspace(h[idx, positions], donor, basis)
         return self.output(self.norm(h)), captured

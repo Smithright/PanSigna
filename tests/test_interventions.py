@@ -50,3 +50,15 @@ def test_categorical_id_permutation_is_equivariant():
         original, _ = model(tokens)
         changed, _ = renamed(permutation[tokens])
         assert torch.allclose(original, changed[:,:,permutation], atol=1e-6)
+
+def test_explicit_patch_position_stays_at_prompt_boundary():
+    torch.manual_seed(12)
+    model = TinyLM(20, width=16, heads=2).eval()
+    base = torch.tensor([[1,2,3,4,5]])
+    donor = torch.tensor([[6,7,8,9,10]])
+    with torch.no_grad():
+        before,_ = model(base)
+        donor_logits,h = model(donor,capture_layer=1)
+        patched,_ = model(base,intervention=(1,h[:,2],torch.eye(16),torch.tensor([2])))
+        assert torch.allclose(patched[:,2],donor_logits[:,2],atol=1e-6)
+        assert torch.allclose(patched[:,-1],before[:,-1],atol=1e-6)

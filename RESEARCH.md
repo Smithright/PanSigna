@@ -45,6 +45,12 @@ the editable install to reproduce dependency versions on a compatible platform.
 Start with [the experimental protocol](docs/protocol.md),
 [encoding specification](docs/encoding.md), and [research sources](docs/sources.md).
 
+The subsequent [full-chain protocol](docs/full-chain-protocol.md) executes raw text
+through annotation, ontology/catalog/index and encoding before native-response
+training. See [its results](docs/full-chain-results.md) and the repository `skills/`
+directory for eight stage-specific agent contracts. The initial draft manuscript
+is under `paper/`; it is not an arXiv submission or a confirmed hypothesis.
+
 ## Ownership and scope
 
 Ryan Smith's PanSigna conception motivates the hypothesis. The synthetic vocabulary,

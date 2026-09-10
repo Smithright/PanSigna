@@ -28,6 +28,6 @@ with (args.out/"patch-basis.csv").open("w", newline="") as f:
     "warning": "Decoder coefficients indicate recoverability, not causal control or addressable model weights.",
     "centering_mean": checkpoint["probe_mean"].tolist(),
     "layer": checkpoint["manifest"]["selected_layer"],
-    "registry": checkpoint["manifest"]["registry"],
-    "source_sha256": checkpoint["manifest"]["source_sha256"],
+    "registry": checkpoint["manifest"].get("registry", {e["key"]:e["bits"] for e in checkpoint["manifest"].get("catalog", [])}),
+    "source_sha256": checkpoint["manifest"].get("source_sha256", checkpoint["manifest"].get("source_hashes")),
 }, indent=2)+"\n")

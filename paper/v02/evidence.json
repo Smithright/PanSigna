@@ -1,0 +1,102 @@
+{
+  "runs": [
+    "runs/full-chain-v02/models/atomic-seed11/metrics.json",
+    "runs/full-chain-v02/models/atomic-seed29/metrics.json",
+    "runs/full-chain-v02/models/atomic-seed3/metrics.json",
+    "runs/full-chain-v02/models/bits-seed11/metrics.json",
+    "runs/full-chain-v02/models/bits-seed29/metrics.json",
+    "runs/full-chain-v02/models/bits-seed3/metrics.json",
+    "runs/full-chain-v02/models/text-seed11/metrics.json",
+    "runs/full-chain-v02/models/text-seed29/metrics.json",
+    "runs/full-chain-v02/models/text-seed3/metrics.json"
+  ],
+  "table": [
+    [
+      "Arm",
+      "Seed",
+      "Legible",
+      "Correct",
+      "Probe",
+      "Swap: base / patch"
+    ],
+    [
+      "atomic",
+      "11",
+      "144/144",
+      "144/144",
+      "0.639",
+      "0/48 / 0/48"
+    ],
+    [
+      "atomic",
+      "29",
+      "144/144",
+      "144/144",
+      "0.958",
+      "0/48 / 0/48"
+    ],
+    [
+      "atomic",
+      "3",
+      "144/144",
+      "144/144",
+      "0.653",
+      "0/48 / 0/48"
+    ],
+    [
+      "bits",
+      "11",
+      "126/144",
+      "66/144",
+      "0.542",
+      "1/48 / 1/48"
+    ],
+    [
+      "bits",
+      "29",
+      "126/144",
+      "70/144",
+      "0.375",
+      "3/48 / 3/48"
+    ],
+    [
+      "bits",
+      "3",
+      "138/144",
+      "70/144",
+      "0.125",
+      "3/48 / 3/48"
+    ],
+    [
+      "text",
+      "11",
+      "144/144",
+      "144/144",
+      "0.757",
+      "0/48 / 0/48"
+    ],
+    [
+      "text",
+      "29",
+      "144/144",
+      "144/144",
+      "0.882",
+      "0/48 / 0/48"
+    ],
+    [
+      "text",
+      "3",
+      "144/144",
+      "144/144",
+      "0.993",
+      "0/48 / 0/48"
+    ]
+  ],
+  "source_hashes": {
+    "native.py": "bb0d278dd7b74a1429657c57a3e9fec16a40aefc7a5748144c229f8b11e0db72",
+    "pipeline.py": "a5195bd46e82e95960cfef1bfe48cf607513a3d0d461767003a134acdfb31ab0",
+    "model.py": "917eddf76f5969f44acf6d09639a61133b34cb4c32e37d6e90d7d7a34dd56099",
+    "codec.py": "172a6da28bcedc5c773dc918dbec8bb03901905abb98ca3162bc5b23e1dc09ca"
+  },
+  "status": "Working draft - controlled synthetic corpus; author and submission metadata pending"
+}
